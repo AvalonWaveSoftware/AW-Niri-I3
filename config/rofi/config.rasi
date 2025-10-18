@@ -1,0 +1,121 @@
+/* Rofi Configuration and Theme */
+configuration {
+    modes: "drun,window,filebrowser"; /* Enable both drun and run modes */
+    show-icons: true; /* Display application icons */
+    display-drun: "Apps"; /* Label for drun mode */
+    sidebar-mode: false; /* Disable sidebar */
+    font: "Sans 12"; /* Font for text */
+    location: 6; /* South (bottom-center) */
+    xoffset: 0;
+    yoffset: 0;
+    anchor: "center";
+}
+
+* {
+    background: #060014;
+    foreground: #3B006E;
+    text: #FF5E2A;
+    accent: #2AE5FF;
+    urgent: #F38BA8;
+    selected: #A6E3A1;
+    border: #C92EFF;
+}
+
+/* Full-screen window */
+window {
+    width: 85%; /* Full screen width */
+    height: 40%; /* Full screen height */
+    transparency: "real"; /* Enable transparency if compositor is active */
+    background-color: @background; /* Dark semi-transparent background */
+    border: 10px; /* No border */
+    border-color: @border;
+    padding: 0px; /* No padding around window */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Main content box */
+mainbox {
+    orientation: horizontal; /* Stack elements vertically */
+    spacing: 10px; /* Space between elements */
+    padding: 20px; /* Padding inside main box */
+    background-color: @background; /* Dark semi-transparent background */
+}
+
+/* Search bar (inputbar) */
+inputbar {
+    width: 20%; /* Search bar width */
+    padding: 10px 15px; /* Padding inside search bar */
+    margin-left: 25%; /* Center by setting equal left and right margins */
+    margin-right: 25%; /* Adjusts to (100% - 50%) / 2 */
+    background-color: @background; /* Slightly lighter background */
+    text-color: @text; /* White text */
+    border: 2px;
+    border-color: @border;
+    border-radius: 8px; /* Rounded corners */
+    children: [ prompt, entry ]; /* Prompt and input field */
+}
+
+/* Prompt (e.g., "Apps:") */
+prompt {
+    text-color: @text;
+    margin: 0px 10px 0px 0px;
+}
+
+/* Input field */
+entry {
+    text-color: @text;
+    placeholder: "Search applications...";
+    placeholder-color: #aaaaaa;
+}
+
+/* Application list container */
+listview {
+    flow: vertical;
+    cycle: false;
+    columns: 2;
+    lines: 10;
+    padding: 10px; /* Padding inside list */
+    border: 5px;
+    border-color: @border;
+    background-color: @foreground; /* Dark semi-transparent background */
+    border-radius: 8px; /* Rounded corners */
+    scrollbar: true; /* Disable scrollbar */
+}
+
+/* Application entry styling */
+element {
+    padding: 5px 5px; /* Padding for each entry */
+    text-color: @text; /* White text */
+    background-color: @background; /* Match listview background */
+    border-radius: 5px;
+    margin: 5px;
+}
+
+/* Explicitly disable alternating pattern and default backgrounds */
+element normal.normal, element normal.active, element normal.urgent,
+element alternate.normal, element alternate.active, element alternate.urgent {
+    background-color: @background; /* Match listview background */
+    text-color: #ffffff;
+}
+
+/* Selected application entry */
+element selected.normal, element selected.active, element selected.urgent {
+    background-color: @background; /* Highlight only selected item */
+    border: 3px;
+    border-color: @text;
+    text-color: @text;
+    border-radius: 5px;
+}
+
+/* Icon styling */
+element-icon {
+    size: 32px; /* Icon size */
+    margin: 0px 0px 0px 0px; /* Space between icon and text */
+    background-color: transparent; /* Ensure icon has no background */
+}
+
+/* Text styling */
+element-text {
+    text-color: inherit;
+    background-color: transparent; /* Ensure text has no background */
+}
