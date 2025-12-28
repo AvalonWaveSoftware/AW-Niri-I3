@@ -4,7 +4,7 @@ configuration {
     show-icons: true; /* Display application icons */
     display-drun: "Apps"; /* Label for drun mode */
     sidebar-mode: false; /* Disable sidebar */
-    font: "Sans 12"; /* Font for text */
+    font: "Hack Nerd Font Mono Regular"; /* Font for text */
     location: 6; /* South (bottom-center) */
     xoffset: 0;
     yoffset: 0;
@@ -12,13 +12,13 @@ configuration {
 }
 
 * {
-    background: #060014;
-    foreground: #3B006E;
-    text: #FF5E2A;
-    accent: #2AE5FF;
-    urgent: #F38BA8;
-    selected: #A6E3A1;
-    border: #C92EFF;
+    background: #000015;
+    foreground: #00004F;
+    text: #de2151;
+    accent: #12def4;
+    urgent: #bc1198;
+    selected: #f1a6a0;
+    border: #7a0cad;
 }
 
 /* Full-screen window */
@@ -70,9 +70,10 @@ entry {
 
 /* Application list container */
 listview {
-    flow: vertical;
+    flow: horizontal;
+//    orientation: verticle;
     cycle: false;
-    columns: 2;
+    columns: 4;
     lines: 10;
     padding: 10px; /* Padding inside list */
     border: 5px;
@@ -84,11 +85,12 @@ listview {
 
 /* Application entry styling */
 element {
-    padding: 5px 5px; /* Padding for each entry */
+    orientation: vertical;
+    padding: 5px;  /*Padding for each entry */
     text-color: @text; /* White text */
     background-color: @background; /* Match listview background */
     border-radius: 5px;
-    margin: 5px;
+    margin: 3px;
 }
 
 /* Explicitly disable alternating pattern and default backgrounds */
